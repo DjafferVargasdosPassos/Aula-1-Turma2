@@ -21,7 +21,7 @@ namespace UtilizandoFor
                     nome[i + 1].ToString() +
                     nome[i + 2].ToString();
 
-                    if(palavraParaComparar == palavraParaComparar)
+                    if(palavra == palavraParaComparar)
                     countFind++;
 
             }
