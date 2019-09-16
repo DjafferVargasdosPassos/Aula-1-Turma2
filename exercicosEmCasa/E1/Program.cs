@@ -4,24 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercicio7
+namespace E1
 {
     class Program
     {
         static void Main(string[] args)
         {
-                    
+            Console.WriteLine(" Seja Bme Vindo ao de Programção em C#!!\n Aperte uma tecla para iniciar!!");
+            Console.ReadKey();
         }
-
-         
-
     }
 }
-                
-                          
-
-            
-          
-
-         
-    

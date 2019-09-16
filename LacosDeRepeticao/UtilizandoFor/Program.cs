@@ -10,7 +10,7 @@ namespace UtilizandoFor
     {
         static void Main(string[] args)
         {
-            var nome = "";
+            var nome = "Gosto de estudar porque fico mais intengilente";
                         var countFind = 0;
 
             Console.WriteLine("Encontre a palavra de até 3 caracteres:");
