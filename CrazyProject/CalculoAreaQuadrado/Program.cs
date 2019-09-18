@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace CalculoAreaQuadrado
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            
+           
         }
         /// <summary>
         /// Metodo que calcula area de um quadrado
         /// </summary>
         public static void CalculoDeAreaQuadrado()
         {
-            Console.WriteLine("Infomar medida da base");
-            double medidaBase = double.Parse(Console.ReadLine());
-            Console.WriteLine("Infomar altura base");
-            double alturaBase = double.Parse(Console.ReadLine());
-            Console.WriteLine("O Total de área é = " + (medidaBase * alturaBase));
+            Console.WriteLine("Infomar medida:");
+            double medida = double.Parse(Console.ReadLine());
+            Console.WriteLine(" O Total da area do Quadrado é = " + (medida * medida) + (" m2"));
+           
             Console.ReadKey();
         }
     }

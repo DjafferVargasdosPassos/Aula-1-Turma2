@@ -4,17 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetodoMostraArvore
+namespace MinhaBiblioteca
 {
-    public class Program
+    public class MinhaArvore
     {
-        static void Main(string[] args)
-        {
-           
-        }
-        /// <summary>
-        /// Metodo para desenhar arvore
-        /// </summary>
         public static void MostraArvore()
         {
             Console.WriteLine("       ( )");
@@ -32,8 +25,6 @@ namespace MetodoMostraArvore
             Console.WriteLine("      |   |");
             Console.WriteLine("VVVVVVVVVVVVVVVVVVVV");
 
-            Console.ReadKey();
         }
     }
-
 }

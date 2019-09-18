@@ -11,10 +11,7 @@ namespace ForeachNaLista
     {
         static void Main(string[] args)
         {
-            ListaDeDecimais();
-
-            Console.ReadKey();
-
+            
         }
         /// <summary>
         /// Metodo que mostra numeros inteiros
