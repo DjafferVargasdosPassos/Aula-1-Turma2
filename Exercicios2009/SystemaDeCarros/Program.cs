@@ -20,7 +20,7 @@ namespace SystemaDeCarros
             c1.Ano = 2010;
             c1.Valor = 500;
 
-            Carros.Add(c1);
+            listaCarros.Add(c1);
 
             Carros c2 = new Carros();
             c2.Marca = "VW";
@@ -28,7 +28,7 @@ namespace SystemaDeCarros
             c2.Ano = 2018;
             c2.Valor = 120000;
 
-            Carros.Add(c2);
+            listaCarros.Add(c2);
 
             Carros c3 = new Carros();
             c3.Marca = "Renault";
@@ -36,9 +36,12 @@ namespace SystemaDeCarros
             c3.Ano = 2015;
             c3.Valor = 35500;
 
-            Carros.Add(c3);
+            listaCarros.Add(c3);
 
-            foreach (Carros item in listaCarros) ;
+            foreach (Carros item in listaCarros)
+            {
+                Console.WriteLine(item.Marca + item.Modelo +)
+            }
 
         }
 
