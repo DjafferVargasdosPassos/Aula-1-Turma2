@@ -42,9 +42,10 @@ namespace InterfaceBiblioteca
                 Console.WriteLine(" 1 - Listar usuários");
                 Console.WriteLine(" 2 - Listar Livro");
                 Console.WriteLine(" 3 - Cadastrar Livro");
-                Console.WriteLine(" 4 - Cadastrar usuário");
-                Console.WriteLine(" 5 - Remover usuário");
-                Console.WriteLine(" 6 - Trocar usuário");                               
+                Console.WriteLine(" 4 - Remover Livro");
+                Console.WriteLine(" 5 - Cadastrar usuário");
+                Console.WriteLine(" 6 - Remover usuário");
+                Console.WriteLine(" 7 - Trocar usuário");                               
                 Console.WriteLine(" 0 - Sair");
 
 
@@ -83,17 +84,23 @@ namespace InterfaceBiblioteca
 
                     case 4:
                         {
-                            AdicionarUsuario();
+                            RemoverLivroPeloID();
                         }
                         break;
 
                     case 5:
                         {
+                            AdicionarUsuario();
+                        }
+                        break;
+
+                    case 6:
+                        {
 
                             RemoverUsuarioPeloID();
                         }
                         break;
-                    case 6:
+                    case 7:
                         {
                             while (!RealizaLoginSistema())
                             {
@@ -109,9 +116,26 @@ namespace InterfaceBiblioteca
                 }
             }
         }
+        /// <summary>
+        /// Metodo que realiza a remoção do livro no sistema
+        /// </summary>
+        private static void RemoverLivroPeloID()
+        {
+            Console.WriteLine("Remover um livro pelo id cadastrado no sistema");
+            MostrarLivro();
+            Console.WriteLine("Informe o Id do livro a ser removido da sua lista");
+            var livroID = int.Parse(Console.ReadLine());
+            livrosController.RemoverLivroPorId(livroID);
+
+            Console.WriteLine(" Livro removido com sucesso!");
+            Console.ReadKey();
+        }
+        /// <summary>
+        /// metodo que remove ousuario pelo Id informado
+        /// </summary>
         private static void RemoverUsuarioPeloID()
         {
-            Console.WriteLine(" Remover um usuário peli id no sistema");
+            Console.WriteLine(" Remover um usuário pelo id no sistema");
             // Metodo que mosra os usuarios criados anteriormente
             MostrarUsuarios();
             Console.WriteLine("Informe o ID para desativar do sistema:");

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CestaDeFrutas", "CestaDeFrutas\CestaDeFrutas.csproj", "{BC2106DA-B00C-4B1D-9976-AFA5E129C56C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListandoPessoas2", "ListandoPessoas2\ListandoPessoas2.csproj", "{3EA4E803-F536-4EBC-B3D8-DDE561784374}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BC2106DA-B00C-4B1D-9976-AFA5E129C56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC2106DA-B00C-4B1D-9976-AFA5E129C56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC2106DA-B00C-4B1D-9976-AFA5E129C56C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA4E803-F536-4EBC-B3D8-DDE561784374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA4E803-F536-4EBC-B3D8-DDE561784374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA4E803-F536-4EBC-B3D8-DDE561784374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA4E803-F536-4EBC-B3D8-DDE561784374}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
