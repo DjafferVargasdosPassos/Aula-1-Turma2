@@ -15,7 +15,7 @@ namespace ListarCarroDoAmigo
         {
             controller.RetornaListaDeCarros().ForEach(i => Console.WriteLine($"{i.Id} {i.Marca} {i.Modelo}"));
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
