@@ -11,17 +11,17 @@ namespace InterfaceBiblioteca
     class Program
     {
         //Instanciamos "Carregamos para a memoria" nosso controlador usuario , livros
-        static UsuarioController usuarioController = new UsuarioController();
-        static LivrosController livrosController = new LivrosController();
+       // static UsuarioController usuarioController = new UsuarioController();
+        static LivrosController livros = new LivrosController();
 
         static void Main(string[] args)
         {
             Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
 
-            while (!RealizaLoginSistema())
+            /*while (!RealizaLoginSistema())
             {
                 Console.WriteLine("Login e senha inválidos");
-            }
+            }*/
             MostraMenuSistema();
 
             Console.ReadKey();
@@ -39,13 +39,14 @@ namespace InterfaceBiblioteca
                 Console.Clear();
                 Console.WriteLine("----SISTEMA DE LOCAÇÃO DE LIVROS 1.0----\r\n");
                 Console.WriteLine(" -----------Meu sistema-----------\r\n");
-                Console.WriteLine(" 1 - Listar usuários");
-                Console.WriteLine(" 2 - Listar Livro");
-                Console.WriteLine(" 3 - Cadastrar Livro");
+               /* Console.WriteLine(" 1 - Listar usuários");*/
+                Console.WriteLine(" 1 - Listar Livro");
+                Console.WriteLine(" 2 - Adicionar Livro");
+                Console.WriteLine(" 3 - Atualizar Livro");
                 Console.WriteLine(" 4 - Remover Livro");
-                Console.WriteLine(" 5 - Cadastrar usuário");
+               /* Console.WriteLine(" 5 - Cadastrar usuário");
                 Console.WriteLine(" 6 - Remover usuário");
-                Console.WriteLine(" 7 - Trocar usuário");                               
+                Console.WriteLine(" 7 - Trocar usuário");*/                               
                 Console.WriteLine(" 0 - Sair");
 
 
@@ -59,11 +60,11 @@ namespace InterfaceBiblioteca
                         {
                             // realiza a chamada o menu de listagem de usuarios
                             Console.Clear();
-                            MostrarUsuarios();
+                            MostrarLivro();
                         }
                         break;
 
-                    case 2:
+                   /* case 2:
                         {
 
                             MostrarLivro();
@@ -74,11 +75,17 @@ namespace InterfaceBiblioteca
                             // Console.Clear();
                             //Console.WriteLine(livro.Nome);
                         }
+                        break;*/
+
+                    case 2:
+                        {
+                            AdicionarLivro();
+                        }
                         break;
 
                     case 3:
                         {
-                            AdicionarLivro();
+                            AtualizarLivro();
                         }
                         break;
 
@@ -88,19 +95,19 @@ namespace InterfaceBiblioteca
                         }
                         break;
 
-                    case 5:
+                   /* case 5:
                         {
                             AdicionarUsuario();
                         }
-                        break;
+                        break;*/
 
-                    case 6:
+                   /* case 6:
                         {
 
                             RemoverUsuarioPeloID();
                         }
-                        break;
-                    case 7:
+                        break;*/
+                    /*case 7:
                         {
                             while (!RealizaLoginSistema())
                             {
@@ -109,7 +116,7 @@ namespace InterfaceBiblioteca
                             Console.WriteLine(" Login e senha inválidos");
                            
                         }
-                        break;
+                        break;*/
                                                                     
                     default:
                         break;
@@ -119,21 +126,11 @@ namespace InterfaceBiblioteca
         /// <summary>
         /// Metodo que realiza a remoção do livro no sistema
         /// </summary>
-        private static void RemoverLivroPeloID()
-        {
-            Console.WriteLine("Remover um livro pelo id cadastrado no sistema");
-            MostrarLivro();
-            Console.WriteLine("Informe o Id do livro a ser removido da sua lista");
-            var livroID = int.Parse(Console.ReadLine());
-            livrosController.RemoverLivroPorId(livroID);
-
-            Console.WriteLine(" Livro removido com sucesso!");
-            Console.ReadKey();
-        }
+      
         /// <summary>
         /// metodo que remove ousuario pelo Id informado
         /// </summary>
-        private static void RemoverUsuarioPeloID()
+       /* private static void RemoverUsuarioPeloID()
         {
             Console.WriteLine(" Remover um usuário pelo id no sistema");
             // Metodo que mosra os usuarios criados anteriormente
@@ -146,8 +143,8 @@ namespace InterfaceBiblioteca
 
             Console.WriteLine(" Usuário desativado com sucesso!");
             Console.ReadKey();
-        }
-        private static void AdicionarUsuario()
+        }*/
+       /* private static void AdicionarUsuario()
         {
             Console.WriteLine(" Informe login do usuário para cadastro:");
             var loginDoUsuario = Console.ReadLine();
@@ -164,7 +161,7 @@ namespace InterfaceBiblioteca
             Console.WriteLine(" Usuário cadastrado com sucesso!");
             Console.ReadKey();
 
-        }
+        }*/
         /// <summary>
         /// Metodo que adiciona dentro de nossa lista um novo registro de livro
         /// </summary>
@@ -179,7 +176,7 @@ namespace InterfaceBiblioteca
             //"livrosController" livros controle e nosso "objeto" em memória
             //COmm isso temos disponivel nele ferramentas que nos ajud a realizar as tarefas
             //como adicionar um item a nossa lista de Livros
-            livrosController.AdicionarLivro(new Livro()
+            livros.AdicionarLivro(new Livro()
             {
                 //Aqui atribuimos o nome que demos ao livro na propriedade Nome de nosso livro
                 //com o sina de apenas um "=" temos atribuição, passagem de valor
@@ -191,30 +188,65 @@ namespace InterfaceBiblioteca
             //ReadKey apenas para que ele visualize esta informação
             Console.ReadKey();
         }
+        public static void AtualizarLivro()
+        {
+            Console.WriteLine("--Atualizar Livro--");
+
+            MostrarLivro();
+
+            Console.WriteLine("Informe o Id para alteração de registro");// Informamos ao usuario para colocar o Id para realizar a alteração
+            var livroId = int.Parse(Console.ReadLine());//obtemos o Id informado
+
+            var livro = livros.GetLivros().FirstOrDefault(x => x.Id == livroId);
+
+            if (livro == null)
+            {
+                Console.WriteLine("Id informado inválido");
+                return;
+            }
+
+            Console.WriteLine("Informe o Marca do celular");
+            livro.Nome = Console.ReadLine();
+                       
+            var resultado = livros.AtualizarLivro(livro);
+
+            if (resultado)
+                Console.WriteLine("Livro atualizado com sucesso!");
+            else
+                Console.WriteLine("Erro ao atualizar Livro");
+        }
+        private static void RemoverLivroPeloID()
+        {
+            Console.WriteLine("Remover um livro pelo id cadastrado no sistema");
+            MostrarLivro();
+            Console.WriteLine("Informe o Id do livro a ser removido da sua lista");
+            var livroID = int.Parse(Console.ReadLine());
+            var livro = livros.GetLivros().FirstOrDefault(x => x.Id == livroID);
+         
+
+            Console.WriteLine(" Livro removido com sucesso!");
+            Console.ReadKey();
+        }
+
+
         /// <summary>
         /// Metodo para mostrar a lista de usuario ja cadastrados no sistema
         /// </summary>
-        private static void MostrarUsuarios()
+      /*  private static void MostrarUsuarios()
         {
             //Aqui andamos pela lista de usuarios e mostramos ela no console
             Console.Clear();
             Console.WriteLine("Lista de usuários\r\n");
             usuarioController.RetornaListaDeUsuarios().ForEach(i => Console.WriteLine($" Id:{i.Id}, Login usuário:{i.Login}"));
             Console.ReadKey();
-        }
+        }*/
+
         private static void MostrarLivro()
         {
             Console.Clear();
             Console.WriteLine(" Lista de Livros:\r\n");
-            livrosController.RetornaListaDeLivros().ForEach(i => Console.WriteLine($" Id: {i.Id}, Nome do livro é: {i.Nome}"));
-            Console.ReadKey();
-           // Livro livro = new Livro()
-            //{
-              //  Nome = "PQP"
-            //};
-
-            //Console.WriteLine($"Meu livro é {livro.Nome}");
-
+            livros.GetLivros().ToList<Livro>().ForEach(i => Console.WriteLine($" Id: {i.Id}, Nome do livro é: {i.Nome}"));
+                     
         }
         /// <summary>
         /// Metodo que realiza os procedimentos completos de login dentro do sistema
@@ -222,7 +254,7 @@ namespace InterfaceBiblioteca
         /// validações que o mesmooprecisa para entrar no sistema 
         /// </summary>
         /// <returns>Retorna verdadeiro quando o login e senha informados estiveres corretos</returns>
-        private static bool RealizaLoginSistema()
+      /*  private static bool RealizaLoginSistema()
         {
             Console.WriteLine("SISTEMA DE LOCAÇÃO DE LIVROS 1.0");
             Console.WriteLine("Informe seu login e senha para acessar:");
@@ -247,7 +279,7 @@ namespace InterfaceBiblioteca
             //    Login = loginDoUsuario,
             //    Senha = senhaDoUsuario
             // });
-        }
+        }*/
       
     }
 }

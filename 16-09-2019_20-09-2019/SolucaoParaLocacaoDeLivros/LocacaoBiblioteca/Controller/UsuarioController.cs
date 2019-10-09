@@ -20,7 +20,7 @@ namespace LocacaoBiblioteca.Controller
         /// </summary>
         /// <param name="Usuario">Passamos um objeto de nome de Usuario como parametro</param>
         /// <returns>Retorna verdadeiro quando exixtir o usuário com este login e senha</returns>
-        public bool LoginSistema(Usuario usuarios)
+      /*  public bool LoginSistema(Usuario usuarios)
         {
             return RetornaListaDeUsuarios().Exists(x => x.Login == usuarios.Login && x.Senha == usuarios.Senha);
             
@@ -35,10 +35,9 @@ namespace LocacaoBiblioteca.Controller
         }
        
 
-        public void AdicionarUsuario(Usuario usuario)
+       /* public void AdicionarUsuario(Usuario usuario)
             
         {
-            usuario.Id = contextDB.IdContadorUsuarios++;
             //adiciono o meu usuario na minha lista
             contextDB.ListaDeUsuarios.Add(usuario);
         }
@@ -60,6 +59,6 @@ namespace LocacaoBiblioteca.Controller
             //Aqui usamos o metodo 'FirstOrDefault' para localizar nosso usuario dentro da lista
             //com isso conseguimos acessar as propriedades dele e desativar o registro
             contextDB.ListaDeUsuarios.FirstOrDefault(x => x.Id == identificadoID).Ativo = false;
-        }
+        }*/
     }
 }

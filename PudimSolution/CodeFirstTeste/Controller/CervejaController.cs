@@ -9,7 +9,7 @@ namespace CodeFirstTeste.Controller
 {
     public class CervejaController
     {
-        CervejaContextDb contextDb = new CervejaContextDb();
+        CervejaContextDb contextDb = new CervejaContextDb(@"data source = (localdb)\MSSQLlocalDB; initial catalog = RevisandoEntity.Model.CervejaContextDB; integrated security = True; MultipleActiveResultSets=True;App=EntityFramework");
         public void AddCerveja(Cerveja item)
         {
             contextDb.Cervejas.Add(item);

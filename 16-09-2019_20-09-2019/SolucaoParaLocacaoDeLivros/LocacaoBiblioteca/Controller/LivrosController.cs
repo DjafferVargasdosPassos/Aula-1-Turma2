@@ -10,26 +10,36 @@ namespace LocacaoBiblioteca.Controller
     public class LivrosController
     {
         private LocacaoContext contextDB = new LocacaoContext();
-        
-        public LivrosController()
-        {
-        
-        }
-        private List<Livro> Livros { get; set; }
-        /// <summary>
-        /// Metodo que adiciona o livro em nossa lista já !instamciada criada dentro do construtor
-        /// </summary>
-        /// <param name="parametrolivro">Informações que vamos adiconar em nossa lista</param>
-        public void AdicionarLivro(Livro parametrolivro)
-        {
-            parametrolivro.Id = contextDB.IdContadorLivros++;
+                    
+        //Inserir        
+        public void AdicionarLivro(Livro item)
+        {            
             //Adiciona o livro em nossa lista.
-            contextDB.Livros.Add(parametrolivro);
+            contextDB.Livros.Add(item);
+            contextDB.SaveChanges();
+                                    
         }
-        public List<Livro> RetornaListaDeLivros()
-        {           
-            return contextDB.Livros.Where(x => x.Ativo).ToList<Livro>();
+        //Atualizar
+        public bool AtualizarLivro(Livro item)
+        {
+            var livro = // Definimos uma variavel para o celular
+           contextDB // ussamos o banco de dados
+           .Livros // Nossa tabela que tem os celulares
+           .FirstOrDefault // buscamos em nossa tabela o celular
+           (x => x.Id == item.Id); // regra para realizar a busca
+
+            //falmos que nosso celular da tabela vai ser igual nosso celular que estamos passando
+            if (livro == null) // verificamos se ele realmente encontrou um celular
+                return false; // caso não tenha encontrado retornamos falso
+            else
+            {
+                item.DataAlteracao = DateTime.Now; // atualizamos a data da alteração do nosso celular
+            }
+            contextDB.SaveChanges();// salvamos a informação no banco
+       
+            return true;
         }
+      
         /// <summary>
         /// Metodo para desativar o registro do livro pelo ID
         /// </summary>
@@ -40,8 +50,16 @@ namespace LocacaoBiblioteca.Controller
 
             if (livro != null)
                 livro.Ativo = false;
-           
+            contextDB.SaveChanges();
+                       
         }
-            
+        //listagem
+        public IQueryable<Livro> GetLivros()
+        {
+            return contextDB // nosso acesso ao banco de dados
+                .Livros // mostra tabela do banco de dados 
+                .Where(x => x.Ativo == true);
+        }
+
     }
 }

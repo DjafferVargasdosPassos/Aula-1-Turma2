@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeFirstTeste.Controller;
 
 
 namespace GambCodeFirst
 {
     class Program
     {
-        static CervejaContextDb cervejaContext = new CervejaContextDb();
+       static CervejaController cervejaContext = new CervejaController();
         static void Main(string[] args)
         {
             
-                cervejaContext.Add(new Cerveja()
+                cervejaContext.AddCerveja(new Cerveja()
                 {
                     Nome = "Cerveja Budweiser"
                 });
