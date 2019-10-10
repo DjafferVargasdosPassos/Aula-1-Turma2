@@ -16,24 +16,25 @@ namespace LocacaoBiblioteca.Controller
         {            
             //Adiciona o livro em nossa lista.
             contextDB.Livros.Add(item);
+            //Salva no banco de dados
             contextDB.SaveChanges();
                                     
         }
         //Atualizar
         public bool AtualizarLivro(Livro item)
         {
-            var livro = // Definimos uma variavel para o celular
+            var findlivro = // Definimos uma variavel para o livro
            contextDB // ussamos o banco de dados
-           .Livros // Nossa tabela que tem os celulares
-           .FirstOrDefault // buscamos em nossa tabela o celular
+           .Livros // Nossa tabela que tem os livros
+           .FirstOrDefault // buscamos em nossa tabela o livro
            (x => x.Id == item.Id); // regra para realizar a busca
 
-            //falmos que nosso celular da tabela vai ser igual nosso celular que estamos passando
-            if (livro == null) // verificamos se ele realmente encontrou um celular
+            //falmos que nosso celular da tabela vai ser igual nosso livro que estamos passando
+            if (findlivro == null) // verificamos se ele realmente encontrou um livro
                 return false; // caso não tenha encontrado retornamos falso
             else
             {
-                item.DataAlteracao = DateTime.Now; // atualizamos a data da alteração do nosso celular
+                item.DataAlteracao = DateTime.Now; // atualizamos a data da alteração do nosso livro
             }
             contextDB.SaveChanges();// salvamos a informação no banco
        

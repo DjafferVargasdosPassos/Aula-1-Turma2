@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B96BA403-6BBC-4670-8FAC-FABEEA4E9AC0}</ProjectGuid>
+    <ProjectGuid>{44C9A099-D7A1-4AF5-83B3-D01625E46DB5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LocacaoBiblioteca</RootNamespace>
-    <AssemblyName>LocacaoBiblioteca</AssemblyName>
+    <RootNamespace>NomeLibrary</RootNamespace>
+    <AssemblyName>NomeLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,14 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\LivrosController.cs" />
-    <Compile Include="Controller\UsuarioController.cs" />
-    <Compile Include="Model\ControleUsuario.cs" />
-    <Compile Include="Model\Livro.cs" />
-    <Compile Include="Model\LocacaoContext.cs" />
-    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Controller\NameController.cs" />
+    <Compile Include="Mode\Name.cs" />
+    <Compile Include="Mode\NameContextDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

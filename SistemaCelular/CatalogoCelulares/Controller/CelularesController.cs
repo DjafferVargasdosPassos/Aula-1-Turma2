@@ -64,7 +64,7 @@ namespace CatalogoCelulares.Controller
             if (string.IsNullOrWhiteSpace(item.Modelo))
                 return false;
 
-            if (item.Preco <= 0) // verificamos se o valor informado é maior que 0
+            if (item.Preco <= 0) // verificamos se o valor informado é menor que 0
                 return false;
 
             contextDB.Celulares.Add(item);// salvamos item dentro da tabela em memoria 
