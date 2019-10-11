@@ -19,6 +19,7 @@ namespace NomeLibrary.Controller
         public IQueryable<Name> GetNames()
         {
             return contextDB.Nome.Where(x => x.Id > 0);
+           
         }
     }
 }

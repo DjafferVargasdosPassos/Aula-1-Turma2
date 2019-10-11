@@ -25,10 +25,12 @@ namespace VisualNomes
                 switch (opcao)
                 {
                     case 1:
+                        Console.Clear();
                         GravarNomes();
                         break;
 
                     case 2:
+                        Console.Clear();
                         ListarNomes();
                         break;
                     default://caso colocar uma opção na valida
@@ -58,7 +60,7 @@ namespace VisualNomes
             public static void ListarNomes()
             {
                 Console.WriteLine("---Lista de Nomes---\r\n");
-            nameController.GetNames().ToList().ForEach(x => Console.WriteLine($"Id{x.Id} nome{x.Nome}"));
+            nameController.GetNames().ToList().ForEach(x => Console.WriteLine($"Id: {x.Id} nome: {x.Nome}"));
             }               
     }
 }
