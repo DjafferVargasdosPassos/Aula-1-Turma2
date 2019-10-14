@@ -14,6 +14,7 @@ namespace NomeLibrary.Controller
         {
             contextDB.Nome.Add(item);
             contextDB.SaveChanges();
+            
         }
 
         public IQueryable<Name> GetNames()

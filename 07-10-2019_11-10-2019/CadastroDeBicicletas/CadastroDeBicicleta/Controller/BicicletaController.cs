@@ -11,10 +11,14 @@ namespace CadastroDeBicicleta.Controller
     {
         BicicletaContextDB contextDb = new BicicletaContextDB();
 
-        public void InserirBike(Bicicleta item)
+        public bool InserirBike(Bicicleta bicicleta)
         {
-            contextDb.Bicicletas.Add(item);
+            if (bicicleta == null)
+                return false;
+            
+            contextDb.Bicicletas.Add(bicicleta);
             contextDb.SaveChanges();
+            return true;
         }
 
         public void AtualizarBike(Bicicleta item)

@@ -29,17 +29,31 @@ namespace InterfaceBicicleta
             Console.WriteLine("Informe o Valor da bicicleta:");
             var valor = double.Parse(Console.ReadLine());
 
-          bikes.InserirBike(new Bicicleta()
+
+            bool resultado = bikes.InserirBike(new Bicicleta()
             {
                 Marca = marca,
                 Modelo = modelo,
                 Valor = valor
             });
 
-           /* if(resultado)
+            if(resultado)
                 Console.WriteLine("Bicicleta cadastrada com sucesso!");
             else
-                Console.WriteLine("Erro ao cadastrar bicicleta!");*/
+                Console.WriteLine("Erro ao cadastrar bicicleta!");
+        }
+        //Atualizar
+        public static void AtualizarBike()
+        {
+
+        }
+
+        //Remover 
+        //Listar
+        public static void ListarBike()
+        {
+            Console.WriteLine("Lista de Bicicletas");
+            bikes.GetBicicletas().ToList<Bicicleta>().ForEach(x => Console.WriteLine($"Marca: {x.Marca} Modelo: {x.Modelo} Valor: {x.Valor}"));
         }
     }
 

@@ -83,7 +83,7 @@ namespace CatalogoCelulares.Controller
             var celular = //nossa variavel
                 contextDB // nossa base de dados
                 .Celulares // tabela de celular
-                .FirstOrDefault // buscamos o item oara desativar
+                .FirstOrDefault // buscamos o item para desativar
                 (x => x.Id == id);// Informamos a regra de busca por Id
 
             if (celular == null)
