@@ -1,0 +1,30 @@
+body {
+    background-image: url('https://www.gamerclick.it/immagini/news/Nuovi_scatti_in_4K_per_il_DLC_Ashes_of_Ariandel_di_Dark_Souls_III/gallery_original/Nuovi_scatti_in_4K_per_il_DLC_Ashes_of_Ariandel_di_Dark_Souls_III-5809f427081c7.jpg');
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.card-body {   
+    margin-top: 15%;
+    width: 200px;
+    height: 200px;
+    text-align: center
+} 
+
+.MinhaDiv{
+    width: 20%;
+    height: 20%;
+    background-color: aqua;
+}
+
+.MeuCard {
+    background-color: transparent;
+    border: 0px solid rgba(0,0,0,.125) !IMPORTANT
+}
+.campo-nome {
+    
+    margin-top: 6px;
+}
+#MeuBotao {
+    margin-top:20%;
+    margin-left: 165%;
+}
