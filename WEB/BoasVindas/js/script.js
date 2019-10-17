@@ -1,9 +1,16 @@
 $(document).ready(
     function () {
-        $('input[type="button"]').click(
+        $('button[name="btn"]').click(
             function () {
-                var nome = $('input[name="nome"]').val();
-                alert(" Oi " + nome + " seja bem vindo!!!");
-                
+                var nomeusuario = $('input[name="nome"]').val();
+                $('span[name="usuariotext"]').text(nomeusuario);
+
             });
-    });
+    }
+    );
+
+$(document).on('keypress', function (e) {
+    if (e.which === 13) {
+        $('button[name="btn"]').click();
+    }
+});
