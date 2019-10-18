@@ -30,6 +30,7 @@ namespace ConsoleApp3
             var teste5 = 0x00; //Hex
             //apresentando a const
             Console.WriteLine(testeConst);
+            Console.ReadLine();
             Console.ReadKey();
 
 
