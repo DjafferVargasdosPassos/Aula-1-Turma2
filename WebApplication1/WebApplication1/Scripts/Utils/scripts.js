@@ -306,7 +306,7 @@ var template =
     "</div>" +
     " </div>"
 
-$(document).ready(function () {
+$(document).ready(function () {    
     //adiciona uma funçã ao click do botao
     $('#Button1').click(function () {
         //conectando como api web
