@@ -9,7 +9,6 @@ using System.Web.Http.Cors;
 namespace CalculoImc2.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-
     public class ImcController : ApiController
     {
         public string Get()
@@ -17,12 +16,13 @@ namespace CalculoImc2.Controllers
             return "teste";
         }         
 
-        public string Get(double altura, double peso, string nomeUsuario= "Defaul")
+
+        public string Post(Pessoa pessoa)
         {
             
-            double imc = peso / (altura * altura);           
-
-            return $" Olá {nomeUsuario} seu IMC é {imc} e ele foi calculado de acordo com sua Altura: {altura} e Peso: {peso}";           
+            double imc = pessoa.Peso/ (pessoa.Altura *  pessoa.Altura);
+            var result = imc.ToString("F");
+            return $" Olá {pessoa.Nome} seu IMC é {result} e ele foi calculado de acordo com sua Altura: {pessoa.Altura } e Peso: {pessoa.Peso}";           
            
         }
     }
