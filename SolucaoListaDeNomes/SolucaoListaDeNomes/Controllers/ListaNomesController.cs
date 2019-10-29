@@ -11,7 +11,7 @@ namespace SolucaoListaDeNomes.Controllers
 
     public class ListaNomesController : ApiController
     {
-        List<Pessoa> listaDePessoas = new List<Pessoa>()
+        List<Pessoa> ListaDePessoas = new List<Pessoa>()
         {
             new Pessoa(){Nome = "Felipe", Idade = 27 },
             new Pessoa(){Nome = "Cliber", Idade = 52},
@@ -21,18 +21,19 @@ namespace SolucaoListaDeNomes.Controllers
             new Pessoa(){Nome = "Djaffer", Idade = 31},
             new Pessoa(){Nome = "Giscleidson", Idade = 38},
             new Pessoa(){Nome = "Climber Tabajara", Idade = 64},
-            new Pessoa(){Nome = "Maraja", Idade = 50}
+            new Pessoa(){Nome = "Maraja", Idade = 50},
+            new Pessoa(){Nome = "Caleidson", Idade = 48}
 
         };
         public List<Pessoa> Get()
         {
             //Informo que minha api esta rodando normalmente
-            return listaDePessoas;
+            return ListaDePessoas;
         }
-        public List<Pessoa> Post(Pessoa values)
+        public Pessoa Post(Pessoa item)
         {
-            listaDePessoas.Add(values);
-            return listaDePessoas;
+            ListaDePessoas.Add(item);
+            return item;
         }
     }
 }
