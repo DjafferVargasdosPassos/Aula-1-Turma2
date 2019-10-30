@@ -12,29 +12,10 @@ using WebApiBancoExistente.Models;
 
 namespace WebApiBancoExistente.Controllers
 {
-    public class VendasController : ApiController
+    public partial class VendasController : ApiController
     {
         private DataBaseContext db = new DataBaseContext();
 
-        //[HttpGet]
-        //[Route("Api/Vendas/CustomVendasQuery")]
-        //public object CustomVendas()
-        //{
-        //    var listVendas = db.Vendas.ToList();
-        //    var listCarros = db.Carros.ToList();
-
-        //    var retornoVendas = from ven in listVendas
-        //                        join car in listCarros
-        //                        on ven.Id equals car.Id
-        //                        select new
-        //                        {
-        //                            VendaId = ven.Id,
-        //                            CarroId = car.Id,
-        //                            CarroNome = car.Modelo,
-
-        //                        };
-        //    return retornoVendas;
-        //}
 
         // GET: api/Vendas
         public IQueryable<Venda> GetVendas()
