@@ -10,9 +10,15 @@ namespace ApiWebImoveis.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public DateTime DataDeNascimento { get; set; }
-        public string Email { get; set; }
+
+        [CustomValidator]
+        public string Nome { get; set; } = string.Empty;
+
+        [CustomValidator]
+        public DateTime DataDeNascimento { get; set; } = DateTime.MinValue;
+
+        [EmailAddress]
+        public string Email { get; set; } = string.Empty;
 
     }
 }
