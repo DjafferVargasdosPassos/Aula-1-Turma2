@@ -17,12 +17,12 @@ namespace ApiWebImoveis.Models
                     return new ValidationResult("Usuário já existente em nossa base de dados");
 
                 if (value.ToString().Contains("Djaffer"))
-                    return new ValidationResult("Não é possível registrar nome!")
+                    return new ValidationResult("Não é possível registrar nome!");
             }                      
 
             if (validationContext.DisplayName == "DataDeNascimento")
             {
-                var data = DateTime.Parse(value.ToString());
+                var data = DateTime.Parse(value.ToString());                
 
                 if (data >= DateTime.Now.AddYears(-18))
                     return new ValidationResult("Não é possivel cadastrar pessoas menores de idade");
