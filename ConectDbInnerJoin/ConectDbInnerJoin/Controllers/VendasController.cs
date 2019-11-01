@@ -15,54 +15,7 @@ namespace ConectDbInnerJoin.Controllers
     public class VendasController : ApiController
     {
         private DataBaseContext db = new DataBaseContext();
-
-        [HttpGet]
-        [Route("Api/Vendas/Relatorio/{ano}")]
-        public object CustomVendasOnYear(int ano)
-        {
-            var listVendas = db.Vendas.ToList();
-            var listCarros = db.Carros.ToList();
-
-            var conteudoRetorno = from ven in listVendas
-                                  join car in listCarros
-                                  on ven.Carro equals car.Id
-                                  where ven.DatInc.Year == ano
-                                  select new
-                                  {
-                                      VendasId = ven.Id,
-                                      CarroVendido = car.Modelo,
-                                      Quantidade = ven.Quantidade
-                                  };
-            return conteudoRetorno;
-        }
-
-        //[HttpGet]
-        //[Route("Api/MarcasOrdenadas")]
-        //public object CustomMarcaOrderby()
-        //{
-
-        //    var listVendas = db.Vendas.ToList();
-        //    var listCarros = db.Carros.ToList();
-        //    var listMarcas = db.Marcas.ToList();
-
-        //    var conteudoRetorno = from ven in listVendas
-        //                          join car in listCarros
-        //                          on ven.Carro equals car.Id
-        //                          join mar in listMarcas
-        //                          on car.Marca equals mar.Id
-        //                          group new { ven, mar, car } by new { ven.DatInc.Year, mar.Nome } into groupby
-        //                          select new
-        //                          {
-        //                              AnoVenda = groupby.Key.Year,                                      
-        //                              ItemVendido = groupby.Count(),
-        //                              MarcaVendida = groupby.Select( x => x.ven.Quantidade).Sum(),
-                                      
-        //                          };
-        //    return conteudoRetorno.OrderBy(x => x.MarcaVendida);
-
-        //}
-
-
+                
 
         // GET: api/Vendas
         public IQueryable<Venda> GetVendas()

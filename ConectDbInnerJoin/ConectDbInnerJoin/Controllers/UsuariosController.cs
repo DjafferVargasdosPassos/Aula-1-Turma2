@@ -16,26 +16,6 @@ namespace ConectDbInnerJoin.Controllers
     {
         private DataBaseContext db = new DataBaseContext();
 
-        [HttpGet]
-        [Route("Api/VendasPorVendedor/Relatorio/{ano}")]
-        public object CustomVendasOnYear(int ano)
-        {
-            var listVendas = db.Vendas.ToList();
-            var listUsuarios = db.Usuarios.ToList();
-
-            var conteudoRetorno = from ven in listVendas
-                                  join usu in listUsuarios
-                                  on ven.UsuInc equals usu.Id
-                                  where ven.DatInc.Year == ano
-                                  group new { ven } by new { ven.DatInc.Year,ven.UsuInc} into groupby
-                                  select new
-                                  {
-                                      AnoVenda = groupby.Key.Year,
-                                      Vendedor = groupby.Key.UsuInc,
-                                      QuantidadeQueOMalucaoVendeu = groupby.Sum(p => p.ven.Quantidade)
-                                  };
-            return conteudoRetorno;
-        }
 
         // GET: api/Usuarios
         public IQueryable<Usuario> GetUsuarios()
